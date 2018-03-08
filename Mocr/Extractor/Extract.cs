@@ -10,7 +10,7 @@ namespace Mocr.Extractor
         {
             using (var api = OcrApi.Create())
             {
-                api.Init(Languages.Portuguese);
+                api.Init(Languages.English);
                 using (var bmp = Bitmap.FromFile(path) as Bitmap)
                 {
                     string plainText = api.GetTextFromImage(bmp);
