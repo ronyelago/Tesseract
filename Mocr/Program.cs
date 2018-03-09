@@ -1,6 +1,7 @@
 ﻿using System;
 using Mocr.Extractor;
 using Mocr.CreateFile;
+using System.Diagnostics;
 
 namespace Mocr
 {
@@ -11,18 +12,16 @@ namespace Mocr
             Console.Write("Digite o caminho da imagem desejada: ");
             string path = @Console.ReadLine();
 
-            //string path = @"C:\WorkSpace\Mocr\Mocr\Capturar.jpg";
             string text = Extract.ExtractTextFromImage(path);
 
-            foreach (var item in text)
-            {
-                Console.WriteLine(item);
-            }
-
+            Console.Write("\nA parada foi extraída. Agora, escolha um nome para o arquivo: ");
+            string name = Console.ReadLine();
 
             Console.WriteLine("\n\n\nSalvando a porra toda...\n");
+            FileGenerator.CreateFile(@"C:\Users\ronye.rocha\Desktop\" +name+ ".txt", text);
 
-            FileGenerator.CreateFile(@"C:\Users\ronye.rocha\Desktop\NomeDoArquivo.txt", text);
+            Console.WriteLine("\n\nAbrindo o rolê...");
+            Process.Start(@"C:\Users\ronye.rocha\Desktop\" + name + ".txt");
 
             Console.WriteLine("\n\n\n---Fim---\n");
             Console.ReadLine();
