@@ -8,7 +8,10 @@ namespace Mocr
     {
         static void Main(string[] args)
         {
-            string path = @"C:\WorkSpace\Mocr\Mocr\Capturar.jpg";
+            Console.Write("Digite o caminho da imagem desejada: ");
+            string path = @Console.ReadLine();
+
+            //string path = @"C:\WorkSpace\Mocr\Mocr\Capturar.jpg";
             string text = Extract.ExtractTextFromImage(path);
 
             foreach (var item in text)
